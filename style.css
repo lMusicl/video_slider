@@ -329,7 +329,6 @@ a.slider-link:hover {
 
     .video_swiper {
         padding: 0 !important;
-        /*max-height: 818px;*/
         height: 804px !important;
         max-width: 500px !important;
     }
@@ -337,6 +336,10 @@ a.slider-link:hover {
     .video_slider {
         background: none;
         min-height: auto;
+    }
+
+    .swiper-wrapper {
+        height: 1% !important;
     }
 
     .video_slider-time,
@@ -365,7 +368,7 @@ a.slider-link:hover {
 
     .swiper-slide-next,
     .swiper-slide-prev {
-        pointer-events: none;
+        pointer-events: none !important;
         animation: none;
     }
 

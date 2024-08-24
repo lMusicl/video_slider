@@ -11,7 +11,6 @@ jQuery(document).ready(function () {
         },
         pagination: {
             el: ".swiper-pagination",
-            // dynamicBullets: true,
             clickable: true,
             renderBullet: function (index, className) {
                 switch (index) {
@@ -90,17 +89,3 @@ jQuery(document).ready(function () {
         swiper.mousewheel.disable();
     });
 });
-
-
-const swiper = new Swiper('.video_swiper', {
-    on: {
-        slideChange: function () {
-            updateActiveTitle(this.activeIndex);
-        }
-    }
-});
-
-function updateActiveTitle (activeIndex) {
-    $('.video_slider-title').removeClass('active');
-    $('.video_slider-title').eq(activeIndex).addClass('active');
-}
