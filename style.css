@@ -431,7 +431,7 @@ a.slider-link:hover {
 
 @media screen and (max-width: 499px) {
     .video_slider {
-        height: 787px;
+        height: 784px;
         max-width: 375px;
     }
 
