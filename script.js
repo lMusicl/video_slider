@@ -29,7 +29,7 @@ jQuery(document).ready(function () {
                         return '<div class="' + className + '">' + "<span>" + "1.." + "</span>" + "</div>";
                         break;
                     case (4):
-                        return '<div class="' + className + '">' + "<span>" + " " + "</span>" + "</div>";
+                        return '<div class="' + className + '">' + "<span>" + "0" + "</span>" + "</div>";
                         break;
                     case (5):
                         return '<div class="' + className + '">' + "<span>" + "..1" + "</span>" + "</div>";
@@ -54,9 +54,19 @@ jQuery(document).ready(function () {
 
     function updateActiveTitle (activeIndex) {
         $('.video_slider-title').removeClass('active');
-        console.log($('.video_slider-title'));
-        console.log(activeIndex);
-        console.log($('.video_slider-title').eq(activeIndex));
         $('.video_slider-title').eq(activeIndex).addClass('active');
     }
+
+    const $pagination = $('.swiper-pagination');
+
+// Добавляем обработчики событий на наведение и отведение мыши с блока пагинации
+    $pagination.on('mouseenter', function() {
+        swiper.params.mousewheel.enabled = true; // Включаем прокрутку колесом при наведении
+        swiper.mousewheel.enable(); // Активируем изменение параметра
+    });
+
+    $pagination.on('mouseleave', function() {
+        swiper.params.mousewheel.enabled = false; // Отключаем прокрутку колесом при уходе мыши
+        swiper.mousewheel.disable(); // Активируем изменение параметра
+    });
 });

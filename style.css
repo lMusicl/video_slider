@@ -125,12 +125,12 @@ a.slider-link:hover {
 }
 
 .swiper-pagination-bullet:nth-child(5) {
-    width: 5px !important;
+    width: 10px !important;
 }
 
 .swiper-pagination-bullet:nth-child(5).swiper-pagination-bullet-active span:before {
     top: -10px;
-    left: -11px;
+    left: -9px;
 }
 
 .swiper-slide-prev {
