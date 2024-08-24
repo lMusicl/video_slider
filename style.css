@@ -351,6 +351,10 @@ a.slider-link:hover {
         opacity: 0.3;
     }
 
+    a.slider-link:hover {
+        scale: none !important;
+    }
+
     .video_slider-titles {
         bottom: 105px;
     }
