@@ -4,10 +4,9 @@ jQuery(document).ready(function () {
         slidesPerView: 1,
         initialSlide: 4,
         speed: 2500,
-        centeredSlides: true,
         on: {
             slideChange: function () {
-                updateActiveTitle(this.activeIndex);
+                updateActiveTitle(this.slides[this.activeIndex].dataset.slideId);
             }
         },
         pagination: {
@@ -50,23 +49,58 @@ jQuery(document).ready(function () {
                 }
             },
         },
+        breakpoints: {
+            320: {
+                direction: 'vertical',
+                centeredSlides: true,
+                slidesPerView: 3,
+                spaceBetween: 20,
+                loop: true,
+                speed: 1500,
+            },
+            425: {
+                direction: 'vertical',
+                centeredSlides: true,
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                speed: 1500,
+            },
+            767: {
+                direction: 'horizontal',
+                slidesPerView: 1,
+            },
+        }
     });
 
-    function updateActiveTitle (activeIndex) {
+    function updateActiveTitle(activeSlideId) {
         $('.video_slider-title').removeClass('active');
-        $('.video_slider-title').eq(activeIndex).addClass('active');
+        $('.video_slider-title[data-title-id="' + activeSlideId + '"]').addClass('active');
     }
 
     const $pagination = $('.swiper-pagination');
 
-// Добавляем обработчики событий на наведение и отведение мыши с блока пагинации
-    $pagination.on('mouseenter', function() {
-        swiper.params.mousewheel.enabled = true; // Включаем прокрутку колесом при наведении
-        swiper.mousewheel.enable(); // Активируем изменение параметра
+    $pagination.on('mouseenter', function () {
+        swiper.params.mousewheel.enabled = true;
+        swiper.mousewheel.enable();
     });
 
-    $pagination.on('mouseleave', function() {
-        swiper.params.mousewheel.enabled = false; // Отключаем прокрутку колесом при уходе мыши
-        swiper.mousewheel.disable(); // Активируем изменение параметра
+    $pagination.on('mouseleave', function () {
+        swiper.params.mousewheel.enabled = false;
+        swiper.mousewheel.disable();
     });
 });
+
+
+const swiper = new Swiper('.video_swiper', {
+    on: {
+        slideChange: function () {
+            updateActiveTitle(this.activeIndex);
+        }
+    }
+});
+
+function updateActiveTitle (activeIndex) {
+    $('.video_slider-title').removeClass('active');
+    $('.video_slider-title').eq(activeIndex).addClass('active');
+}
