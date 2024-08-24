@@ -431,8 +431,12 @@ a.slider-link:hover {
 
 @media screen and (max-width: 499px) {
     .video_slider {
-        height: 812px;
+        height: 787px;
         max-width: 375px;
+    }
+
+    .video_swiper {
+        height: 100% !important;
     }
 
     a.slider-link {
@@ -448,7 +452,8 @@ a.slider-link:hover {
 
     .video_slider-aim {
         width: 343px;
-        height: 783px;
+        height: 760px;
+        background-size: contain;
         background-image: url("content/mobile_border_2.png");
     }
 
